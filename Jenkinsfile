@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('Autogen') {
+      steps {
+        sh './autogen.sh'
+      }
+    }
     stage('Configure') {
       steps {
         sh './configure'
@@ -9,11 +14,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'make'
-      }
-    }
-    stage('Autogen') {
-      steps {
-        sh './autogen.sh'
       }
     }
   }
