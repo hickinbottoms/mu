@@ -11,5 +11,10 @@ pipeline {
         sh 'make'
       }
     }
+    stage('Autogen') {
+      steps {
+        sh './autogen.sh'
+      }
+    }
   }
 }
